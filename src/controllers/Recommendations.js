@@ -56,11 +56,10 @@ const getRecommendation = (req, res, next) => {
     fetchData(apiUrl)
       .then(jsonResponse => {
         console.log(jsonResponse);
-        var responseObject = JSON.parse(response);
-
-        var meal = responseObject.meal;
-        var dessert = responseObject.dessert;
-        var drink = responseObject.drink;
+        
+        var meal = jsonResponse.meal;
+        var dessert = jsonResponse.dessert;
+        var drink = jsonResponse.drink;
 
         console.log("Meal: " + meal);
         console.log("Dessert: " + dessert); 
