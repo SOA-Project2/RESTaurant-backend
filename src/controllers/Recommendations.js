@@ -56,7 +56,7 @@ const getRecommendation = (req, res, next) => {
     fetchData(apiUrl)
       .then(jsonResponse => {
         console.log(jsonResponse);
-        
+
         var meal = jsonResponse.meal;
         var dessert = jsonResponse.dessert;
         var drink = jsonResponse.drink;
@@ -78,18 +78,34 @@ const getRecommendation = (req, res, next) => {
         res.status(statusCodes.OK).json(responseApi);
       })
       .catch(error => {
-        console.error("Unknown error:", error);
-        res.status(statusCodes.INTERNAL_SERVER_ERROR).json({ error: "Internal Server Error" });
+        if (error.status == 404) {
+          return notFoundError(next)
+        } else if (error.status == 400) {
+          return badRequestError(next)
+        } else {
+          return internalServiceError(next)
+        }
       });
   };
   
   function notFoundError(next) {
-  
     const err = new Error("Could not find a recommendation for that meal");
     err.status = statusCodes.NOT_FOUND;
     return next(err);
-    
   };
+
+  function internalServiceError(next) {
+    const err = new Error("Internal Server Error");
+    err.status = statusCodes.INTERNAL_SERVER_ERROR;
+    return next(err);
+  };
+
+  function badRequestError(next) {
+    const err = new Error("Bad Request response. Invalid number of query parameters. Must be between 1 and 2. Or invalid query values, must be one of/: meal, drink, dessert.");
+    err.status = statusCodes.BAD_REQUEST;
+    return next(err);
+  }
+
   module.exports = {
     getRecommendation,
   };

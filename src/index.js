@@ -1,5 +1,6 @@
 const express = require("express"); //Import express framework module
 const morgan = require("morgan"); //Import morgan for middleware to log HTTP requests and errors
+const menu = require("./models/menu.json"); //Import morgan for middleware to log HTTP requests and errors
 const port = 5555; //Define port: first checks if available in environment variables
 
 const app = express(); //Main express app
@@ -9,6 +10,10 @@ app.use(morgan("tiny")); //Log request
 
 const recommendationController = require("./controllers/Recommendations");
 router.get("/recomendations", recommendationController.getRecommendation); 
+
+app.get('/menu', (req, res) => {
+    res.json(menu);
+  });
 
 app.use(router); 
 

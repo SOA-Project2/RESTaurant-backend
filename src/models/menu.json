@@ -1,0 +1,98 @@
+{
+    "menu": {
+      "entradas": [
+        {
+          "nombre": "Patacones",
+          "descripción": "Plátanos verdes fritos servidos con una salsa picante.",
+          "precio": "₡3000"
+        }
+      ],
+      "platos_principales": [
+        {
+          "nombre": "Casado",
+          "descripción": "Plato tradicional costarricense que incluye arroz, frijoles, plátanos, ensalada y elección de proteína.",
+          "precio": "₡6500"
+        },
+        {
+          "nombre": "Chifrijo",
+          "descripción": "Un plato contundente de arroz, frijoles, chicharrones fritos, tomate picado y aguacate.",
+          "precio": "₡5500"
+        },
+        {
+        "nombre": "Gallo pinto",
+        "descripción": "Plato típico costarricense de arroz y frijoles cocinados juntos con cebolla y especias.",
+        "precio": "₡2000"
+        },
+        {
+        "nombre": "Arroz con frijoles",
+        "descripción": "Una combinación simple pero deliciosa de arroz y frijoles rojos.",
+        "precio": "₡2500"
+        }
+      ],
+      "postres": [
+        {
+          "nombre": "Flan",
+          "descripción": "Flan cremoso de caramelo cubierto con salsa de caramelo.",
+          "precio": "₡3500"
+        },
+        {
+          "nombre": "Pastel de tres leches",
+          "descripción": "Un bizcocho húmedo empapado en tres tipos de leche y cubierto con crema batida.",
+          "precio": "₡4000"
+        },
+        {
+          "nombre": "Helado de cajeta",
+          "descripción": "Delicioso helado de leche con un toque dulce de cajeta.",
+          "precio": "₡3800"
+        },
+        {
+          "nombre": "Tiramisú",
+          "descripción": "Postre italiano hecho con capas de bizcocho empapado en café y crema de mascarpone.",
+          "precio": "₡4500"
+        },
+        {
+          "nombre": "Cajeta",
+          "descripción": "Dulce típico mexicano hecho con leche de cabra caramelizada.",
+          "precio": "₡3200"
+        },
+        {
+          "nombre": "Mousse de chocolate",
+          "descripción": "Deliciosa espuma de chocolate negro con textura suave y cremosa.",
+          "precio": "₡3800"
+        }
+      ],
+      "bebidas": [
+        {
+          "nombre": "Jugo de mango",
+          "descripción": "Refrescante jugo de mango natural.",
+          "precio": "₡2500"
+        },
+        {
+          "nombre": "Hiel",
+          "descripción": "Agua fresca y pura.",
+          "precio": "₡1000"
+        },
+        {
+          "nombre": "Cerveza",
+          "descripción": "Cerveza fría y refrescante.",
+          "precio": "₡2000"
+        },
+        {
+          "nombre": "Jugos naturales",
+          "descripción": "Jugos de frutas recién exprimidos hechos con frutas de temporada.",
+          "precio": "₡2000"
+        },
+        {
+          "nombre": "Jugo de Naranja",
+          "descripción": "Delicioso jugo de naranja fresco.",
+          "precio": "₡2500"
+        },
+        {
+          "nombre": "Café",
+          "descripción": "Café costarricense rico y aromático.",
+          "precio": "₡1500"
+        }
+      ]
+    }
+  }
+  
