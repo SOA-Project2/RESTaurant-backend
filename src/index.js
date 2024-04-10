@@ -11,6 +11,9 @@ app.use(morgan("tiny")); //Log request
 const recommendationController = require("./controllers/Recommendations");
 router.get("/recomendations", recommendationController.getRecommendation); 
 
+const hourSuggestion = require("./controllers/HourSuggestions");
+router.get("/suggestions", hourSuggestion.getHourSuggestion); 
+
 app.get('/menu', (req, res) => {
     res.json(menu);
   });
