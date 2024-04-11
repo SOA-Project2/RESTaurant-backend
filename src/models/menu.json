@@ -1,98 +1,100 @@
 {
-    "menu": {
-      "entradas": [
-        {
-          "nombre": "Patacones",
-          "descripción": "Plátanos verdes fritos servidos con una salsa picante.",
-          "precio": "₡3000"
-        }
-      ],
-      "platos_principales": [
-        {
-          "nombre": "Casado",
-          "descripción": "Plato tradicional costarricense que incluye arroz, frijoles, plátanos, ensalada y elección de proteína.",
-          "precio": "₡6500"
-        },
-        {
-          "nombre": "Chifrijo",
-          "descripción": "Un plato contundente de arroz, frijoles, chicharrones fritos, tomate picado y aguacate.",
-          "precio": "₡5500"
-        },
-        {
-        "nombre": "Gallo pinto",
-        "descripción": "Plato típico costarricense de arroz y frijoles cocinados juntos con cebolla y especias.",
-        "precio": "₡2000"
-        },
-        {
-        "nombre": "Arroz con frijoles",
-        "descripción": "Una combinación simple pero deliciosa de arroz y frijoles rojos.",
-        "precio": "₡2500"
-        }
-      ],
-      "postres": [
-        {
-          "nombre": "Flan",
-          "descripción": "Flan cremoso de caramelo cubierto con salsa de caramelo.",
-          "precio": "₡3500"
-        },
-        {
-          "nombre": "Pastel de tres leches",
-          "descripción": "Un bizcocho húmedo empapado en tres tipos de leche y cubierto con crema batida.",
-          "precio": "₡4000"
-        },
-        {
-          "nombre": "Helado de cajeta",
-          "descripción": "Delicioso helado de leche con un toque dulce de cajeta.",
-          "precio": "₡3800"
-        },
-        {
-          "nombre": "Tiramisú",
-          "descripción": "Postre italiano hecho con capas de bizcocho empapado en café y crema de mascarpone.",
-          "precio": "₡4500"
-        },
-        {
-          "nombre": "Cajeta",
-          "descripción": "Dulce típico mexicano hecho con leche de cabra caramelizada.",
-          "precio": "₡3200"
-        },
-        {
-          "nombre": "Mousse de chocolate",
-          "descripción": "Deliciosa espuma de chocolate negro con textura suave y cremosa.",
-          "precio": "₡3800"
-        }
-      ],
-      "bebidas": [
-        {
-          "nombre": "Jugo de mango",
-          "descripción": "Refrescante jugo de mango natural.",
-          "precio": "₡2500"
-        },
-        {
-          "nombre": "Hiel",
-          "descripción": "Agua fresca y pura.",
-          "precio": "₡1000"
-        },
-        {
-          "nombre": "Cerveza",
-          "descripción": "Cerveza fría y refrescante.",
-          "precio": "₡2000"
-        },
-        {
-          "nombre": "Jugos naturales",
-          "descripción": "Jugos de frutas recién exprimidos hechos con frutas de temporada.",
-          "precio": "₡2000"
-        },
-        {
-          "nombre": "Jugo de Naranja",
-          "descripción": "Delicioso jugo de naranja fresco.",
-          "precio": "₡2500"
-        },
-        {
-          "nombre": "Café",
-          "descripción": "Café costarricense rico y aromático.",
-          "precio": "₡1500"
-        }
-      ]
-    }
+  "menu": {
+    "meal": [
+      {
+        "name": "Casado",
+        "description": "Traditional Costa Rican dish including rice, beans, plantains, salad, and choice of protein.",
+        "price": "₡6500"
+      },
+      {
+        "name": "Patacones",
+        "description": "Fried green plantains served with a spicy sauce.",
+        "price": "₡3000"
+      },
+      {
+        "name": "Chifrijo",
+        "description": "A hearty dish of rice, beans, fried pork rinds, chopped tomato, and avocado.",
+        "price": "₡5500"
+      },
+      {
+        "name": "Gallo pinto",
+        "description": "Typical Costa Rican dish of rice and beans cooked together with onions and spices.",
+        "price": "₡2000"
+      },
+      {
+        "name": "Arroz con frijoles",
+        "description": "A simple yet delicious combination of rice and red beans.",
+        "price": "₡2500"
+      },
+      {
+        "name": "Pizza",
+        "description": "Pizza is an Italian dish consisting of a round, thin crust of bread dough topped with tomato sauce and cheese.",
+        "price": "₡6500"
+      }
+    ],
+    "dessert": [
+      {
+        "name": "Flan",
+        "description": "Creamy caramel flan topped with caramel sauce.",
+        "price": "₡3500"
+      },
+      {
+        "name": "Pastel de tres leches",
+        "description": "A moist cake soaked in three types of milk and topped with whipped cream.",
+        "price": "₡4000"
+      },
+      {
+        "name": "Helado de cajeta",
+        "description": "Delicious milk ice cream with a sweet touch of cajeta.",
+        "price": "₡3800"
+      },
+      {
+        "name": "Tiramisú",
+        "description": "Italian dessert made with layers of sponge cake soaked in coffee and mascarpone cream.",
+        "price": "₡4500"
+      },
+      {
+        "name": "Cajeta",
+        "description": "Traditional Mexican sweet made with caramelized goat's milk.",
+        "price": "₡3200"
+      },
+      {
+        "name": "Mousse de chocolate",
+        "description": "Delicious dark chocolate foam with a smooth and creamy texture.",
+        "price": "₡3800"
+      }
+    ],
+    "drinks": [
+      {
+        "name": "Jugo de mango",
+        "description": "Refreshing natural mango juice.",
+        "price": "₡2500"
+      },
+      {
+        "name": "Hiel",
+        "description": "Fresh and pure water.",
+        "price": "₡1000"
+      },
+      {
+        "name": "Cerveza",
+        "description": "Cold and refreshing beer.",
+        "price": "₡2000"
+      },
+      {
+        "name": "Jugos naturales",
+        "description": "Freshly squeezed fruit juices made with seasonal fruits.",
+        "price": "₡2000"
+      },
+      {
+        "name": "Jugo de Naranja",
+        "description": "Delicious fresh orange juice.",
+        "price": "₡2500"
+      },
+      {
+        "name": "Café",
+        "description": "Rich and aromatic Costa Rican coffee.",
+        "price": "₡1500"
+      }
+    ]
   }
-  
+}

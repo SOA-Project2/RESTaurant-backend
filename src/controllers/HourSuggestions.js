@@ -31,7 +31,6 @@ async function fetchData(url, next) {
 
 const getHourSuggestion = (req, res, next) => {
     const query = req.query;
-    let responseApi = {};
 
     const weekday = Object.values(query)[0];
     if (weekday.length === 0){
@@ -54,22 +53,14 @@ const getHourSuggestion = (req, res, next) => {
         var time = jsonResponse.time;
         var day = jsonResponse.day;
         var message = jsonResponse.message;
+        var available = jsonResponse.available;
 
         console.log("Time: " + time);
         console.log("Day: " + day); 
         console.log("Message: " + message);
+        console.log("available: " + available);
 
-        responseApi = helpers.writeResponse(
-        responseApi,
-        "day",
-        "time",
-        "message",
-        day,
-        time,
-        message
-        );
-  
-        res.status(statusCodes.OK).json(responseApi);
+        res.status(statusCodes.OK).json(jsonResponse);
       })
       .catch(error => {
         if (error.status == 404) {
@@ -95,7 +86,7 @@ const getHourSuggestion = (req, res, next) => {
   };
 
   function badRequestError(next) {
-    const err = new Error("Bad Request response. Invalid number day of the week. [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or Sunday]. Or invalid hour of the day, 24 hour format");
+    const err = new Error("Bad Request response. Invalid name day of the week. [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or Sunday]. Or invalid hour of the day, 24 hour format and not contain alphabeti letters. Day and time are required params.");
     err.status = statusCodes.BAD_REQUEST;
     return next(err);
   }
