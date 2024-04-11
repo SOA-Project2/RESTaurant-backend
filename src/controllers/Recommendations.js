@@ -31,13 +31,12 @@ async function fetchData(url, next) {
 
 const getRecommendation = (req, res, next) => {
     const query = req.query;
-    let responseApi = {};
   
     const queryLength = Object.keys(query).length;
     const firstParameter = Object.keys(query)[0];
     const firstParameterValue = Object.values(query)[0];
     if (firstParameterValue.length === 0){
-      return notFoundError(next)
+      res.status(statusCodes.NOT_FOUND).send("Input value is empty");
     }
     let body = `?${firstParameter}=${firstParameterValue}`;
   
@@ -45,7 +44,7 @@ const getRecommendation = (req, res, next) => {
       const secondParameter = Object.keys(query)[1];
       const secondParameterValue = Object.values(query)[1];
       if (secondParameterValue.length === 0){
-        return notFoundError(next)
+        res.status(statusCodes.NOT_FOUND).send("Input value is empty");
       }
       body += `&${secondParameter}=${secondParameterValue}`;
     }
@@ -65,46 +64,18 @@ const getRecommendation = (req, res, next) => {
         console.log("Dessert: " + dessert); 
         console.log("Drink: " + drink);
 
-        responseApi = helpers.writeResponse(
-        responseApi,
-        "meal",
-        "drink",
-        "dessert",
-        meal,
-        drink,
-        dessert
-        );
-  
-        res.status(statusCodes.OK).json(responseApi);
+        res.status(statusCodes.OK).json(jsonResponse);
       })
       .catch(error => {
         if (error.status == 404) {
-          return notFoundError(next)
+          res.status(statusCodes.NOT_FOUND).send("Could not find a recommendation for that meal");
         } else if (error.status == 400) {
-          return badRequestError(next)
+          res.status(statusCodes.BAD_REQUEST).send("Bad Request response. Invalid number of query parameters. Must be between 1 and 2. Or invalid query values, must be one of/: meal, drink, dessert.");
         } else {
-          return internalServiceError(next)
+          res.status(statusCodes.INTERNAL_SERVER_ERROR).send("Internal Server Error");
         }
       });
   };
-  
-  function notFoundError(next) {
-    const err = new Error("Could not find a recommendation for that meal");
-    err.status = statusCodes.NOT_FOUND;
-    return next(err);
-  };
-
-  function internalServiceError(next) {
-    const err = new Error("Internal Server Error");
-    err.status = statusCodes.INTERNAL_SERVER_ERROR;
-    return next(err);
-  };
-
-  function badRequestError(next) {
-    const err = new Error("Bad Request response. Invalid number of query parameters. Must be between 1 and 2. Or invalid query values, must be one of/: meal, drink, dessert.");
-    err.status = statusCodes.BAD_REQUEST;
-    return next(err);
-  }
 
   module.exports = {
     getRecommendation,

@@ -34,12 +34,12 @@ const getHourSuggestion = (req, res, next) => {
 
     const weekday = Object.values(query)[0];
     if (weekday.length === 0){
-      return notFoundError(next)
+      res.status(statusCodes.BAD_REQUEST).send("Weekday input empty")
     }
 
     const reservationHour = Object.values(query)[1];
     if (reservationHour.length === 0){
-    return notFoundError(next)
+      res.status(statusCodes.BAD_REQUEST).send("Reservation hour input empty")
     }
     let body = `${weekday}/${reservationHour}`;
     
@@ -64,33 +64,15 @@ const getHourSuggestion = (req, res, next) => {
       })
       .catch(error => {
         if (error.status == 404) {
-          return notFoundError(next)
+          res.status(statusCodes.NOT_FOUND).send("No available day");
         } else if (error.status == 400) {
-          return badRequestError(next)
+          res.status(statusCodes.BAD_REQUEST).send("Bad Request response. Invalid name day of the week. [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or Sunday]. Or invalid hour of the day, 24 hour format and not contain alphabeti letters. Day and time are required params.");
         } else {
-          return internalServiceError(next)
+          res.status(statusCodes.INTERNAL_SERVER_ERROR).send("Internal Server Error");
         }
       });
   };
   
-  function notFoundError(next) {
-    const err = new Error("Pending message");
-    err.status = statusCodes.NOT_FOUND;
-    return next(err);
-  };
-
-  function internalServiceError(next) {
-    const err = new Error("Internal Server Error");
-    err.status = statusCodes.INTERNAL_SERVER_ERROR;
-    return next(err);
-  };
-
-  function badRequestError(next) {
-    const err = new Error("Bad Request response. Invalid name day of the week. [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or Sunday]. Or invalid hour of the day, 24 hour format and not contain alphabeti letters. Day and time are required params.");
-    err.status = statusCodes.BAD_REQUEST;
-    return next(err);
-  }
-
   module.exports = {
     getHourSuggestion,
   };
