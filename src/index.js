@@ -15,7 +15,7 @@ const hourSuggestion = require("./controllers/HourSuggestions");
 router.get("/suggestions", hourSuggestion.getHourSuggestion); 
 
 const submitFeedback = require("./controllers/ChatBot");
-router.post("/feedback", submitFeedback.submitFeedback); 
+router.post("/sendFeedback", submitFeedback.submitFeedback); 
 
 const getFeedback = require("./controllers/ChatBot");
 router.get("/getFeedback", getFeedback.getFeedback); 

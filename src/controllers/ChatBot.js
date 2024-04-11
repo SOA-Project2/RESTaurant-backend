@@ -1,22 +1,12 @@
-const axios = require('axios');
+
 const statusCodes = require("../constants/statusCodes");
 const helpers = require("../helpers/ResponseHelpers");
 
 const server = "https://us-central1-soa-g6-p2.cloudfunctions.net/chatbot/";
 
-async function fetchData(url, body, next) {
-  try {
-    const response = await axios.post(url, body);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    if (next) {
-      next(error);
-    }
-    throw error;
-  }
-}
 
+
+  
 /**
  * Handle feedback submission request
  * @param {*} req
@@ -37,7 +27,7 @@ const submitFeedback = async (req, res, next) => {
     console.log(apiUrl);
   
     try {
-      const jsonResponse = await fetchData(apiUrl, body, next);
+      const jsonResponse = await helpers.postData(apiUrl, body, next);
       console.log(jsonResponse);
   
       res.status(statusCodes.OK).json(jsonResponse);
@@ -61,7 +51,7 @@ const getFeedback = async (req, res, next) => {
   console.log(apiUrl);
 
   try {
-    const jsonResponse = await fetchData(apiUrl, null, next);
+    const jsonResponse = await helpers.getData(apiUrl, next);
     console.log(jsonResponse);
 
     res.status(statusCodes.OK).json(jsonResponse);

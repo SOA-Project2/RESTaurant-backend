@@ -1,27 +1,38 @@
-const writeResponse = (response, key1, key2, key3, value1, value2, value3) => {
-    response[key1] = value1;
-    response[key2] = value2;
-    response[key3] = value3;
-    return response
+const axios = require('axios');
+
+
+async function getData(url, next) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      const err = new Error("Error while requesting our service");
+      err.status = response.status;
+      throw err;
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    if (next) {
+      next(error);
+    }
+    throw error;
   }
-  
-const getOneMissingParameter = (foodType1, foodType2) => {
-  const foodTypes = ["meal", "dessert", "drink"];
+}
 
-  const missingFoodType = foodTypes.find(type => type !== foodType1 && type !== foodType2);
-  return missingFoodType;
-};
-
-const getTwoMissingParameter = (foodType) => {
-  const foodTypes = ["meal", "dessert", "drink"];
-
-  const missingFoodTypes = foodTypes.filter(type => type !== foodType);
-  return missingFoodTypes;
-
-};
+async function postData(url, body, next) {
+  try {
+    const response = await axios.post(url, body);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    if (next) {
+      next(error);
+    }
+    throw error;
+  }
+}
 
 module.exports = {
-  getTwoMissingParameter,
-  getOneMissingParameter,
-  writeResponse,
+  postData,
+  getData
 };

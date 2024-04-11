@@ -3,25 +3,6 @@ const helpers = require("../helpers/ResponseHelpers")
 
 const server = "https://us-central1-soa-g6-p2.cloudfunctions.net/schedule-recommendation/schedule/"
 
-
-async function fetchData(url, next) {
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      const err = new Error("Error while requesting our service");
-      err.status = response.status;
-      throw err;
-    }
-    return await response.json();
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    if (next) {
-      next(error);
-    }
-    throw error;
-  }
-}
-
 /**
  * Handle external recommendation request
  * @param {*} req
@@ -46,7 +27,7 @@ const getHourSuggestion = (req, res, next) => {
     const apiUrl = server + body;
     console.log(apiUrl);
   
-    fetchData(apiUrl)
+    helpers.getData(apiUrl)
       .then(jsonResponse => {
         console.log(jsonResponse);
 
@@ -72,7 +53,7 @@ const getHourSuggestion = (req, res, next) => {
         }
       });
   };
-  
+
   module.exports = {
     getHourSuggestion,
   };
