@@ -51,7 +51,7 @@ const getRecommendation = (req, res, next) => {
         if (error.status == 404) {
           res.status(statusCodes.NOT_FOUND).send("Could not find a recommendation for that meal");
         } else if (error.status == 400) {
-          res.status(statusCodes.BAD_REQUEST).send("Bad Request response. Invalid number of query parameters. Must be between 1 and 2. Or invalid query values, must be one of/: meal, drink, dessert.");
+          res.status(statusCodes.BAD_REQUEST).send("Bad Request response. Invalid number of query parameters. Must be between 1 and 2. Or invalid query values, must be one of [meal, drink, dessert]. Values should not contain numbers or invalid letters");
         } else {
           res.status(statusCodes.INTERNAL_SERVER_ERROR).send("Internal Server Error");
         }
